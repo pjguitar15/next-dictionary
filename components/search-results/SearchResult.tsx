@@ -8,8 +8,16 @@ const SearchResult = async ({
   resultValues,
 }: {
   paramValue: string
-  resultValues: { word: string; phonetic: string; meanings: Object[] }
+  resultValues: {
+    word: string
+    phonetic: string
+    meanings: Object[]
+    phonetics: any
+    audio: any
+  }
 }) => {
+  console.log('RESULT:')
+  console.log(resultValues.phonetics[0].audio)
   return (
     <div className='flex gap-12 py-6 last:border-b-0 border-b-2 border-gray-200'>
       {/* Left Column */}
@@ -31,7 +39,7 @@ const SearchResult = async ({
           <Meanings key={index} allMeanings={item} />
         ))}
         <div className='mt-2'>
-          <MusicPlayer />
+          <MusicPlayer audio={resultValues.phonetics[0].audio} />
         </div>
       </div>
     </div>
