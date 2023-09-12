@@ -34,7 +34,7 @@ const Definitions: React.FC<DefinitionsProps> = ({
         </p>
       ))}
 
-      {definitionItems.length > 2 && (
+      {definitionItems.length > 3 && (
         <div>
           {displayedItems !== definitionItems.length ? (
             <div

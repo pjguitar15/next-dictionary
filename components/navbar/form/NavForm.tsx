@@ -15,7 +15,7 @@ const NavForm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault()
-    router.push(`/search?value=${input}`)
+    if (input) router.push(`/search?value=${input}`)
   }
   return (
     <form onSubmit={handleSubmit} className='w-full'>

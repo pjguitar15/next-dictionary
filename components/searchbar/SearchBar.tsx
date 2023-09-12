@@ -6,7 +6,7 @@ const SearchBar = () => {
   return (
     <div className='mt-3'>
       <div className='container mx-auto flex gap-10 justify-start items-center'>
-        <TriIcons />
+        {/* <TriIcons /> */}
         <NavForm />
       </div>
     </div>
