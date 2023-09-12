@@ -8,7 +8,7 @@ const Meanings = ({
   allMeanings: {
     partOfSpeech: string
     synonyms: string[]
-    definitions: string[]
+    definitions: any
   }
 }) => {
   return (
