@@ -4,7 +4,6 @@ import MusicPlayer from './MusicPlayer'
 import Meanings from './Meanings'
 
 const SearchResult = async ({
-  paramValue,
   resultValues,
 }: {
   paramValue: string
@@ -16,8 +15,6 @@ const SearchResult = async ({
     audio: any
   }
 }) => {
-  console.log('RESULT:')
-  console.log(resultValues.phonetics[0].audio)
   return (
     <div className='flex gap-12 py-6 last:border-b-0 border-b-2 border-gray-200'>
       {/* Left Column */}
@@ -38,9 +35,12 @@ const SearchResult = async ({
         {resultValues.meanings.map((item: any, index) => (
           <Meanings key={index} allMeanings={item} />
         ))}
-        <div className='mt-2'>
-          <MusicPlayer audio={resultValues.phonetics[0].audio} />
-        </div>
+
+        {resultValues.phonetics[0].audio !== '' && (
+          <div className='mt-2'>
+            <MusicPlayer audio={resultValues.phonetics[0].audio} />
+          </div>
+        )}
       </div>
     </div>
   )

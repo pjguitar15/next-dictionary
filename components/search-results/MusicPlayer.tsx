@@ -1,17 +1,13 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCirclePlay, faCirclePause } from '@fortawesome/free-solid-svg-icons'
 import useSound from 'use-sound'
 
 const MusicPlayer = ({ audio }: any) => {
-  const [audioFile, setAudioFile] = useState('')
   const [isPlaying, setIsPlaying] = useState(false)
   const [play, { duration }] = useSound(audio)
-  useEffect(() => {
-    setAudioFile(audio)
-    console.log(audio)
-  }, [audio])
+
   const handlePlay = () => {
     setIsPlaying(true)
     play()
@@ -37,13 +33,6 @@ const MusicPlayer = ({ audio }: any) => {
             } hover:text-green-400 cursor-pointer transition duration-200`}
             icon={isPlaying ? faCirclePause : faCirclePlay}
           />
-          {/* {isPlaying && (
-            <div
-              className={`h-1 w-16 bg-green-500 ${
-                isPlaying && 'animate-wave overflow-hidden'
-              }`}
-            ></div>
-          )} */}
         </div>
       </div>
     </div>
