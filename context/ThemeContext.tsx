@@ -25,7 +25,7 @@ export const GlobalContextProvider = ({
 }: {
   children: ReactNode
 }) => {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
   const switchThemeHandler = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'))
   }
