@@ -25,12 +25,12 @@ const NavLinks = () => {
         {theme === 'dark' ? (
           <>
             <FontAwesomeIcon className='me-1' icon={faMoon} />
-            Switch to Light
+            <span className='hidden sm:inline-block'>Switch to Light</span>
           </>
         ) : (
           <>
             <FontAwesomeIcon className='me-1' icon={faSun} />
-            Switch to Dark
+            <span className='hidden sm:inline-block'>Switch to Dark</span>
           </>
         )}
       </div>

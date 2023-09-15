@@ -45,7 +45,7 @@ const SearchResult = ({
         <Badge name='common word' color='green' />
       </div>
       {/* Right column */}
-      <div className='w-9/12 md:w-10/12'>
+      <div className='w-full md:w-10/12'>
         {resultValues.meanings.map((item: any, index) => (
           <Meanings key={index} allMeanings={item} />
         ))}
