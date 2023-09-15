@@ -6,6 +6,8 @@ import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss = false
 import { Inter } from 'next/font/google'
 import SearchBar from '@/components/searchbar/SearchBar'
+// Context
+import { GlobalContextProvider } from '@/context/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,9 +24,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inter.className}`}>
-        <Navbar />
-        <SearchBar />
-        {children}
+        <GlobalContextProvider>
+          <Navbar />
+          <SearchBar />
+          {children}
+        </GlobalContextProvider>
       </body>
     </html>
   )

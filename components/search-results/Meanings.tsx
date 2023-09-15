@@ -1,19 +1,25 @@
 import React from 'react'
 import Synonyms from './Synonyms'
 import Definitions from './Definitions'
+// context
+import { useGlobalContext } from '@/context/ThemeContext'
 
-const Meanings = ({
-  allMeanings,
-}: {
-  allMeanings: {
-    partOfSpeech: string
-    synonyms: string[]
-    definitions: any
-  }
-}) => {
+type MeaningsProps = {
+  partOfSpeech: string
+  synonyms: string[]
+  definitions: any
+}
+
+const Meanings = ({ allMeanings }: { allMeanings: MeaningsProps }) => {
+  const { theme } = useGlobalContext()
+  const isDark = theme === 'dark'
   return (
     <div className='mt-2 first:mt-0'>
-      <h6 className='text-sm text-gray-500 mb-1 uppercase font-semibold'>
+      <h6
+        className={`text-sm mb-1 uppercase font-semibold ${
+          isDark ? 'text-white' : 'text-gray-500'
+        }`}
+      >
         {allMeanings.partOfSpeech}
       </h6>
       {/* Synonyms */}

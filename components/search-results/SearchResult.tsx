@@ -2,24 +2,38 @@ import React from 'react'
 import Badge from '../Badge'
 import MusicPlayer from './MusicPlayer'
 import Meanings from './Meanings'
+// context
+import { useGlobalContext } from '@/context/ThemeContext'
 
-const SearchResult = async ({
+type SearchResultProps = {
+  word: string
+  phonetic: string
+  meanings: Object[]
+  phonetics: any
+  audio: any
+}
+
+const SearchResult = ({
   resultValues,
 }: {
   paramValue: string
-  resultValues: {
-    word: string
-    phonetic: string
-    meanings: Object[]
-    phonetics: any
-    audio: any
-  }
+  resultValues: SearchResultProps
 }) => {
+  const { theme } = useGlobalContext()
+  const isDark = theme === 'dark'
   return (
-    <div className='flex gap-12 py-6 last:border-b-0 border-b-2 border-gray-200'>
+    <div
+      className={`flex flex-col md:flex-row gap-12 py-6 last:border-b-0 border-b-2 border-gray-200 ${
+        isDark ? '' : ''
+      }`}
+    >
       {/* Left Column */}
-      <div className='w-auto'>
-        <h3 className='text-2xl font-semibold text-gray-600 capitalize mb-1'>
+      <div className='sm:w-3/12 lg:w-2/12'>
+        <h3
+          className={`text-2xl font-semibold capitalize mb-1 ${
+            isDark ? 'text-white' : 'text-gray-600'
+          }`}
+        >
           {resultValues.word}
         </h3>
         {resultValues.phonetic && (
@@ -31,7 +45,7 @@ const SearchResult = async ({
         <Badge name='common word' color='green' />
       </div>
       {/* Right column */}
-      <div className='w-10/12'>
+      <div className='w-9/12 md:w-10/12'>
         {resultValues.meanings.map((item: any, index) => (
           <Meanings key={index} allMeanings={item} />
         ))}

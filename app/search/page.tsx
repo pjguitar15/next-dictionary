@@ -1,18 +1,18 @@
-import SearchResults from '@/components/search-results/SearchResults'
 import React from 'react'
+import SearchpageContent from '@/components/search page/SearchpageContent'
 
-const SearchPage = ({ searchParams }: { searchParams: { value: string } }) => {
+const SearchPage = async ({
+  searchParams,
+}: {
+  searchParams: { value: string }
+}) => {
+  const data = await fetch(
+    `https://api.dictionaryapi.dev/api/v2/entries/en/${searchParams.value}`
+  )
+
+  const res = await data.json()
   return (
-    <section className='py-7 container mx-auto'>
-      <div className='text-gray-500 text-sm mb-2 md:w-3/4 leading-7'>
-        <p>
-          You searched for:
-          {` "${searchParams.value}"`}
-        </p>
-      </div>
-      <hr className='mb-6' />
-      <SearchResults searchParams={searchParams.value} />
-    </section>
+    <SearchpageContent APIValues={res} searchParamsValue={searchParams.value} />
   )
 }
 
