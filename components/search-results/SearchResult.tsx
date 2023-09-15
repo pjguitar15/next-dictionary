@@ -50,11 +50,12 @@ const SearchResult = ({
           <Meanings key={index} allMeanings={item} />
         ))}
 
-        {resultValues.phonetics[0].audio !== '' && (
-          <div className='mt-2'>
-            <MusicPlayer audio={resultValues.phonetics[0].audio} />
-          </div>
-        )}
+        {resultValues.phonetics.length === 0 ||
+          (resultValues.phonetics[0].audio !== '' && (
+            <div className='mt-2'>
+              <MusicPlayer audio={resultValues.phonetics[0].audio} />
+            </div>
+          ))}
       </div>
     </div>
   )

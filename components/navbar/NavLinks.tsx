@@ -13,10 +13,12 @@ const NavLinks = () => {
   return (
     <ul className='flex gap-5 text-green-500 justify-start md:justify-end'>
       <li>
-        <Link href='#'>Forum</Link>
+        <Link href='/about'>About the App</Link>
       </li>
       <li>
-        <Link href='#'>About</Link>
+        <a href='https://philcodes-portfolio.vercel.app/' target='_blank'>
+          The Developer
+        </a>
       </li>
 
       <div className='cursor-pointer select-none' onClick={switchThemeHandler}>
