@@ -1,5 +1,7 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
+import dictionaryIllustration from '@/public/assets/dictionary-illustration.svg'
 // context
 import { useGlobalContext } from '@/context/ThemeContext'
 
@@ -12,7 +14,15 @@ const HomepageContent = () => {
         isDark ? 'bg-zinc-900 text-white' : 'bg-white text-gray-500 '
       } py-7`}
     >
-      <div className=' container mx-auto'>
+      <div className='container mx-auto'>
+        {/* Image here */}
+        <Image
+          className='w-76 my-6'
+          src={dictionaryIllustration}
+          alt=''
+          width={400}
+          height={400}
+        />
         <div className='md:w-3/4 leading-7'>
           <p>
             <strong>Vocab Vault</strong> is a powerful English dictionary. It
